@@ -138,7 +138,7 @@ GameObject:
   - component: {fileID: 110613282}
   m_Layer: 0
   m_Name: player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -281,7 +281,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &110613284
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -304,6 +304,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 266906953}
+  - component: {fileID: 266906955}
   - component: {fileID: 266906952}
   - component: {fileID: 266906954}
   m_Layer: 0
@@ -425,6 +426,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 5.944131, y: 2.6416867}
   m_EdgeRadius: 0
+--- !u!114 &266906955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 266906951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9f8b99f20287ca489e301a71f78a16d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bubble: {fileID: 1625985004}
 --- !u!1 &376099756
 GameObject:
   m_ObjectHideFlags: 0
@@ -676,7 +690,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7eb316221227a7b4a80f6bef2f68f9eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eProgress: 0
+  eProgress: 1
   disPlay: {fileID: 950450345}
 --- !u!4 &671089126
 Transform:

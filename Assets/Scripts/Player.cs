@@ -23,6 +23,16 @@ public class Player : MonoBehaviour
         if(collision.gameObject.CompareTag("item"))
         {
             itemNames.Add(collision.gameObject.name);
+
+            if(GM.instance.eProgress == GM.Progress.퀘스트받음_수행X)
+            {
+                if(itemNames.Count == 2)
+                {
+                    GM.instance.eProgress = GM.Progress.퀘스트받음_수행O;
+                }
+            }
+
+
         }
     }
 
