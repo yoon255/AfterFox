@@ -12,12 +12,12 @@ public class GM : MonoBehaviour
 
     void Start()
     {
-        //이동코드를 작성
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        disPlay.text = eProgress.ToString();    
+
     }
 }
