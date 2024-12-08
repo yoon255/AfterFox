@@ -15,7 +15,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        transform.position += new Vector3(1, 0, 0);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -29,10 +29,9 @@ public class Player : MonoBehaviour
                 if(itemNames.Count == 2)
                 {
                     GM.instance.eProgress = GM.Progress.퀘스트받음_수행O;
+                    GM.instance.disPlay.text = GM.instance.eProgress.ToString();
                 }
             }
-
-
         }
     }
 
