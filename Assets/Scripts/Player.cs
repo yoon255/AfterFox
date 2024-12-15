@@ -9,6 +9,9 @@ public class Player : MonoBehaviour
     public float speed = 6f;
     public Rigidbody2D foxRB;
     public int jumpCount = 0;
+    public AudioSource audioSource;
+
+
 
     private void Awake()
     {
@@ -21,7 +24,6 @@ public class Player : MonoBehaviour
          
     }
 
-    // Update is called once per frame
     void Update()
     {
         Move();
@@ -31,6 +33,7 @@ public class Player : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 jumpCount++;
+                audioSource.Play(); 
                 foxRB.velocity = new Vector2(0, 0);
                 foxRB.AddForce(new Vector2(0, 1) * 20, ForceMode2D.Impulse);
             }
