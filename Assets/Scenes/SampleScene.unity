@@ -514,6 +514,7 @@ MonoBehaviour:
   foxRB: {fileID: 110613283}
   jumpCount: 0
   audioSource: {fileID: 110613286}
+  animator: {fileID: 110613287}
 --- !u!81 &110613285
 AudioListener:
   m_ObjectHideFlags: 0
