@@ -64,6 +64,10 @@ public class GM : MonoBehaviour
         PlayerPrefs.SetFloat("posX", Player.instance.transform.position.x);
         PlayerPrefs.SetFloat("posY", Player.instance.transform.position.y);
         PlayerPrefs.SetFloat("posZ", Player.instance.transform.position.z);
+
+        //사운드
+        PlayerPrefs.SetFloat("valueBG", sliderBG.value);
+        PlayerPrefs.SetFloat("valueEffect", sliderEffect.value);
     }
     public void Button_Load()
     {
@@ -75,11 +79,15 @@ public class GM : MonoBehaviour
         float a = PlayerPrefs.GetFloat("posX");
         float b = PlayerPrefs.GetFloat("posY");
         float c = PlayerPrefs.GetFloat("posZ");
-        
+        float vBG = PlayerPrefs.GetFloat("valueBG");
+        float vEffect = PlayerPrefs.GetFloat("valueEffect");
+
         //불러온 값으로 대입
         eProgress = (Progress)process;
         disPlay.text = eProgress.ToString();    
         Player.instance.transform.position = new Vector3(a, b, c);  
+        sliderBG.value = vBG;
+        sliderEffect.value = vEffect;
     }
 
 

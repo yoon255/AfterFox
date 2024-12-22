@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
     public Rigidbody2D foxRB;
     public int jumpCount = 0;
     public AudioSource audioSource;
-
+    public Animator animator;   
 
 
     private void Awake()
@@ -27,12 +27,17 @@ public class Player : MonoBehaviour
     void Update()
     {
         Move();
-        
+        if (Input.GetButtonUp("Horizontal"))
+        {
+            animator.SetBool("isRuning", false);
+        }
+
         if(jumpCount < 2)
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 jumpCount++;
+                animator.SetBool("isJumping", true);
                 audioSource.Play(); 
                 foxRB.velocity = new Vector2(0, 0);
                 foxRB.AddForce(new Vector2(0, 1) * 20, ForceMode2D.Impulse);
@@ -42,9 +47,9 @@ public class Player : MonoBehaviour
 
     void Move()
     {
-
         if (Input.GetKey(KeyCode.RightArrow))
         {
+            animator.SetBool("isRuning", true);
             transform.position += new Vector3(+1, 0, 0) * Time.deltaTime * speed;
             transform.rotation = Quaternion.Euler(0, 0, 0);
 
@@ -52,6 +57,7 @@ public class Player : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.LeftArrow))
         {
+            animator.SetBool("isRuning", true);
             transform.position += new Vector3(-1, 0, 0) * Time.deltaTime * speed;
             transform.rotation = Quaternion.Euler(0, 180, 0);
         }
@@ -80,6 +86,7 @@ public class Player : MonoBehaviour
         if(collision.gameObject.CompareTag("floor"))
         {
             jumpCount = 0;
+            animator.SetBool("isJumping", false);
         }
 
     }
