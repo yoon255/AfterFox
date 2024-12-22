@@ -129,10 +129,22 @@ public class GM : MonoBehaviour
             mixer.SetFloat("ExposedPara_effect", sliderEffect.value);
         }
     }
-
     public void ActiveSetSound(bool a)
     {
         canSound.SetActive(a);
     }
+
+    public IEnumerator MainVol_Down()
+    {
+        //언제까지반복: 0이될때까지
+        while(cameraAS.volume > 0.05f)
+        {
+            cameraAS.volume -= 0.01f;
+            yield return null; //약 0.02
+        }
+        cameraAS.volume = 0;
+    }
+
+
 
 }

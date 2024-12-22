@@ -31,6 +31,9 @@ public class NPC : MonoBehaviour
 
         if (collision.CompareTag("Player"))
         {
+            //메인BGM감소
+            StartCoroutine(GM.instance.MainVol_Down());
+
             //대사를 지정
             switch (GM.instance.eProgress)
             {
