@@ -7,8 +7,8 @@ public class NPC : MonoBehaviour
 {
     public GameObject bubble;
     TextMeshProUGUI bubbleText;
+    public string speech;
 
-    
     private void Start()
     {
         Inital();
@@ -32,13 +32,13 @@ public class NPC : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             //메인BGM감소
-            StartCoroutine(GM.instance.MainVol_Down());
+            GM.instance.Vol_down();
 
-            //대사를 지정
+            //대사를 지
             switch (GM.instance.eProgress)
             {
                 case GM.Progress.퀘스트받기전:
-                    bubbleText.text = "체리를 두번째로 먹어";
+                    StartCoroutine(TyppingEffect("체리를 두번째로 먹어"));
                     GM.instance.eProgress = GM.Progress.퀘스트받음_수행X;
                     break;
                 case GM.Progress.퀘스트받음_수행X:
@@ -72,7 +72,22 @@ public class NPC : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
+            GM.instance.Vol_up();
             bubble.SetActive(false);
         }
     }
+
+    IEnumerator TyppingEffect(string talk)
+    {
+        bubbleText.text = "";
+
+        speech = talk;
+
+        for (int i = 0; i < speech.Length; i++)
+        {
+            bubbleText.text += speech[i];
+            yield return new WaitForSeconds(0.1f);
+        }
+    }
+
 }

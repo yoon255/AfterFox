@@ -18,6 +18,7 @@ public class GM : MonoBehaviour
 
     public AudioMixer mixer;
     public AudioSource cameraAS;
+    [SerializeField] float cameraAS_oriVol;
     public Slider sliderBG;
 
     public AudioSource playerAS;
@@ -28,6 +29,11 @@ public class GM : MonoBehaviour
     private void Awake()
     {
         instance = this;
+    }
+
+    private void Start()
+    {
+        cameraAS_oriVol = cameraAS.volume;
     }
 
     // Update is called once per frame
@@ -143,6 +149,26 @@ public class GM : MonoBehaviour
             yield return null; //약 0.02
         }
         cameraAS.volume = 0;
+    }
+    public IEnumerator MainVol_Up()
+    {
+        //언제까지반복: 0이될때까지
+        while (cameraAS.volume < cameraAS_oriVol)
+        {
+            cameraAS.volume += 0.01f;
+            yield return null; //약 0.02
+        }
+        cameraAS.volume = cameraAS_oriVol;
+    }
+    public void Vol_up()
+    {
+        StopCoroutine("MainVol_Down");
+        StartCoroutine("MainVol_Up");
+    }
+    public void Vol_down()
+    {
+        StopAllCoroutines();
+        StartCoroutine("MainVol_Down");
     }
 
 
