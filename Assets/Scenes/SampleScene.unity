@@ -530,7 +530,7 @@ AudioSource:
   m_GameObject: {fileID: 110613279}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -3912545577206554288, guid: 5c4138c5d3c94b241bd6a464807b75eb, type: 2}
   m_audioClip: {fileID: 8300000, guid: 5d8ee862516241c45b7b151399cbc159, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.5
@@ -925,12 +925,12 @@ AudioSource:
   m_GameObject: {fileID: 266906951}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -5694026343874237484, guid: 5c4138c5d3c94b241bd6a464807b75eb, type: 2}
   m_audioClip: {fileID: 8300000, guid: 847092790658bf34a9fe174b69aa7837, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.2
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -1093,7 +1093,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 357097561}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 671089125}
+        m_TargetAssemblyTypeName: GM, Assembly-CSharp
+        m_MethodName: ActiveSetSound
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &357097561
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1355,12 +1367,12 @@ AudioSource:
   m_GameObject: {fileID: 519420028}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -5694026343874237484, guid: 5c4138c5d3c94b241bd6a464807b75eb, type: 2}
   m_audioClip: {fileID: 8300000, guid: 7812a629520f9b14c9d63f2359d3ebc8, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.2
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -1523,7 +1535,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 532149461}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 671089125}
+        m_TargetAssemblyTypeName: GM, Assembly-CSharp
+        m_MethodName: ActiveSetSound
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &532149461
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1771,10 +1795,12 @@ MonoBehaviour:
   can_SNL: {fileID: 805744296}
   eProgress: 1
   disPlay: {fileID: 950450345}
+  mixer: {fileID: 24100000, guid: 5c4138c5d3c94b241bd6a464807b75eb, type: 2}
   cameraAS: {fileID: 519420033}
   sliderBG: {fileID: 1363935201}
   playerAS: {fileID: 110613286}
   sliderEffect: {fileID: 802615176}
+  canSound: {fileID: 1804203533}
 --- !u!4 &671089126
 Transform:
   m_ObjectHideFlags: 0
@@ -3148,8 +3174,8 @@ MonoBehaviour:
   m_FillRect: {fileID: 724004805}
   m_HandleRect: {fileID: 1421301205}
   m_Direction: 0
-  m_MinValue: 0
-  m_MaxValue: 1
+  m_MinValue: -40
+  m_MaxValue: 0
   m_WholeNumbers: 0
   m_Value: 0
   m_OnValueChanged:
@@ -4299,10 +4325,10 @@ MonoBehaviour:
   m_FillRect: {fileID: 917795086}
   m_HandleRect: {fileID: 1849568226}
   m_Direction: 0
-  m_MinValue: 0
-  m_MaxValue: 1
+  m_MinValue: -40
+  m_MaxValue: 0
   m_WholeNumbers: 0
-  m_Value: 0.33
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -5133,7 +5159,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_TargetDisplay: 0
 --- !u!224 &1804203537
 RectTransform:
@@ -5412,6 +5438,6 @@ SceneRoots:
   - {fileID: 1967266951}
   - {fileID: 1621013985}
   - {fileID: 1649075878}
-  - {fileID: 805744300}
-  - {fileID: 1804203537}
   - {fileID: 661371651}
+  - {fileID: 1804203537}
+  - {fileID: 805744300}

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro; // TextMeshPro
 using UnityEngine.UI;
+using UnityEngine.Audio;
 
 public class GM : MonoBehaviour
 {
@@ -15,11 +16,14 @@ public class GM : MonoBehaviour
     //TextMeshPro가 아니라 TextMeshProUGUI
     public TextMeshProUGUI disPlay;
 
+    public AudioMixer mixer;
     public AudioSource cameraAS;
     public Slider sliderBG;
 
     public AudioSource playerAS;
     public Slider sliderEffect;
+
+    public GameObject canSound;
 
     private void Awake()
     {
@@ -91,14 +95,36 @@ public class GM : MonoBehaviour
 
     public void SetBG()
     {
-        cameraAS.volume = sliderBG.value;
+        //개별 오디오 변경방식
+        //cameraAS.volume = sliderBG.value;
 
+        //mixer활용방식
+        if(sliderBG.value == -40)
+        {
+            mixer.SetFloat("ExposedPara_bg", -80);
+        }
+        else
+        {
+            mixer.SetFloat("ExposedPara_bg", sliderBG.value);
+        }
     }
     //~47분
     //효과음 slider를 움직이면, 효과음(플레이어의 점프사운드)이 조절되도록
     public void SetEffect()
     {
-        playerAS.volume = sliderEffect.value;   
+        if(sliderEffect.value == -40)
+        {
+            mixer.SetFloat("ExposedPara_effect", -80);
+        }
+        else
+        {
+            mixer.SetFloat("ExposedPara_effect", sliderEffect.value);
+        }
+    }
+
+    public void ActiveSetSound(bool a)
+    {
+        canSound.SetActive(a);
     }
 
 }
